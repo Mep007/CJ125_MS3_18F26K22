@@ -1,0 +1,34 @@
+1. verze na DPS PMC10101 - TP-150IR
+------------------------------------------
+
+Chyby v1.0 :
+-----------
+ 0. chybejici mereni Vbat (+10 az +16V) kvuli ochrane topeni sondy !!! - FIXED 1.1
+ 1. chybejici spojeni TEST pinu FT232RL na GND - bez nej nefunguje, lze propajet se sousednim pinem 25 - FIXED v1.1
+ 2. chybi kondik 100n z pinu +3.3V na FT232RL - FIXED 1.1	
+ 3. DOUT z MAX7219 nemuze byt pripojen na SPI sbernici - (MISO) - je to tvrdy CMOS vystup pro dasliho MAXe - FIXED 1.1
+ 4. na MISO to chce cca 22k/33k ke GND - jinak obcas chodi blba data - je to tim, ze vystup zustava v log1 - FIXED 1.1
+ 5. kondik C35 chybne 33n - ma byt 100n (u RM, CM vyvoduu) - FIXED 1.1
+ 6. !!! pullup odpor na CS MAXe (100k staci, dam 47k) - jinak displej nekdy nebezi !!! - FIXED 1.1 
+ 7. RC filtr  u DAC1/2 zmenit na 10k/1u (mozna i 2u) - tj. Fp=10hz - bohate staci, zvlneni kolem 20mV, uz ok - FIXED 1.1
+ 8. chybejici pull-upy 4k7 pro I2C header (MISO,SCK) - FIXED 1.1
+
+
+
+
+
+
+
+
+
+
+Wishlist do verze 1.1
+-----------------------
+ 1.  PWM vystup na PIC HEATER (RB0-INT0) prehodit se sousednim L_BUT0 (RB1-INT1) - zde je CCP4 -  DONE (provizorne mam L_BUT0 misto BUzzer - RA3 - 02.07.2019)
+ 2.  propojku na USB +5V na Vcc - pres ACM ferrite bead - DONE - Pozor: CJ125 NESMi byt bez Vbat (kdyz je Vcc!!) takze NEPOUZIVAT !!
+ 100. (LED na komunikaci Tx Rx)
+ 3. otazka pouziti CAN obvodu - pro napojeni na diag v aute
+ 4. otazka jestli pouzit presny externi DAC na simulovany NB out a nejaky analog out pro AFR - 
+     -bude se jeste zkouset PWM vystup pres LF filtr a OP
+ 5. predelany jumpery na volbu sondy - ted staci nechat otevrene pro 4.9 / zkratovane pro 4.2 (a jen  2x 2pin misto 2x 3pin) - DONE v1.1
+ 6. prehozeny piny na L-BUT0 na RA7, PIC_HEATER vystup na CCP1 (RC2) a LED1 na RA6 - tim se uvolnily RB0-RB2 - bud na 3x AD, nebo 2. I2C

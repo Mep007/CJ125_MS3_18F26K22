@@ -1,0 +1,127 @@
+Version:0.9
+StartHTML:0000000105
+EndHTML:0000025156
+StartFragment:0000001518
+EndFragment:0000025140
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mikroIDE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+body { font-family: Courier New; font-size: 14pt; }
+.cpp1-activecomment { color: #316AC5; font-style: italic; text-decoration: underline; }
+.cpp1-assembler { color: #FF0000; font-weight: bold; }
+.cpp1-binary { color: #FFFF00; }
+.cpp1-comment { color: #00DF00; font-style: italic; }
+.cpp1-float { color: #00FF00; }
+.cpp1-hexadecimal { color: #00F4F4; }
+.cpp1-character { color: #FFFF00; }
+.cpp1-identifier { color: #F7F7F7; }
+.cpp1-illegalchar { color: #FF0000; }
+.cpp1-imagelink { color: #B09AED; font-style: italic; text-decoration: underline; }
+.cpp1-number { color: #00DD00; }
+.cpp1-octal { color: #808080; }
+.cpp1-preprocessor { color: #808000; font-style: italic; }
+.cpp1-reservedword { color: #15FFFF; font-weight: bold; }
+.cpp1-space { color: #000000; }
+.cpp1-string { color: #FFFF00; }
+.cpp1-symbol { color: #F2F2F2; }
+.cpp1-weblink { color: #316AC5; font-style: italic; text-decoration: underline; }
+-->
+</style>
+</head>
+<body>
+<!--StartFragment--><pre><code>
+<span class="cpp1-preprocessor">#include&nbsp;&quot;resource.h&quot;
+
+</span><span class="cpp1-comment">//&nbsp;Special&nbsp;Pin&nbsp;function&nbsp;definitions
+
+//sfr&nbsp;sbit&nbsp;BUT0&nbsp;&nbsp;at&nbsp;RB0_bit;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;puvodni&nbsp;deska
+</span><span class="cpp1-reservedword">sfr</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">BUT0</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RA3_bit</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;puvodne&nbsp;BUZZER&nbsp;out&nbsp;-&nbsp;preriznuty&nbsp;spoj&nbsp;u&nbsp;R65&nbsp;!!
+</span><span class="cpp1-reservedword">sfr</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LED1</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LATB2_bit</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;BLUE
+</span><span class="cpp1-reservedword">sfr</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LED2</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LATB3_bit</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;GREEN
+</span><span class="cpp1-reservedword">sfr</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LED3</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LATB4_bit</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;RED
+
+//&nbsp;SPI1&nbsp;CS&nbsp;pins
+</span><span class="cpp1-reservedword">sfr</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">MAX7219_CS</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RC0_bit</span><span class="cpp1-symbol">;
+</span><span class="cpp1-reservedword">sfr</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">CJ125_CS</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RC1_bit</span><span class="cpp1-symbol">;
+</span><span class="cpp1-reservedword">sfr</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">CJ125_RST</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RC2_bit</span><span class="cpp1-symbol">;
+</span><span class="cpp1-reservedword">sfr</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">CJ125_Heater</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RB0_bit</span><span class="cpp1-symbol">;
+
+
+</span><span class="cpp1-comment">//&nbsp;============================================================================
+//&nbsp;Functions&nbsp;definitons
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">HW_Init</span><span class="cpp1-symbol">()</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;PORT&nbsp;A&nbsp;definition
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">PORTA</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LATA</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">ANSELA</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-binary">0b00100111</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;RA0-2,5&nbsp;=&gt;&nbsp;A/D,&nbsp;RA3&nbsp;-&nbsp;I/O&nbsp;IN&nbsp;(L_BUT0)
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">TRISA</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-binary">0b00101111</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;RA4-&nbsp;CCP5&nbsp;-&nbsp;DAC2&nbsp;PWM&nbsp;out
+
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;PORT&nbsp;B&nbsp;definition
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">PORTB</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LATB</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">ANSELB</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;all&nbsp;digitals&nbsp;I/O
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">TRISB</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-binary">0b10000010</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;RB0-&nbsp;PWM&nbsp;CCP4&nbsp;OUT&nbsp;spojen&nbsp;cinem&nbsp;s&nbsp;RB1(INPUT)&nbsp;-&nbsp;PIC_HEATER&nbsp;(pac&nbsp;RB1&nbsp;nema&nbsp;CCPx&nbsp;unit)
+
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;PORT&nbsp;C&nbsp;definition
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">PORTC</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LATC</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-binary">0b00000011</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;MAX7219&nbsp;nCS&nbsp;OFF&nbsp;:&gt;&nbsp;RC0&nbsp;=&nbsp;log1,&nbsp;Bosch&nbsp;CJ125&nbsp;-&nbsp;RC1&nbsp;=&nbsp;log1&nbsp;(OFF),&nbsp;RC2&nbsp;-&nbsp;Bosch&nbsp;CJ125&nbsp;-&nbsp;RST&nbsp;(log1&nbsp;=&nbsp;working)
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">TRISC</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-binary">0b10010000</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">ANSELC</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;all&nbsp;digitals&nbsp;I/O
+
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//CCP4&nbsp;PWM
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">PWM4_Init</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1000</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">PWM4_Set_Duty</span><span class="cpp1-symbol">(</span><span class="cpp1-number">0</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;PWM4_Start();
+
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">OSCCON</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-binary">0b01110010</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;16Mhz&nbsp;int&nbsp;osc
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">while</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">HFIOFS_bit</span><span class="cpp1-symbol">);
+
+
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;UART&nbsp;1&nbsp;115k2&nbsp;Init&nbsp;-&nbsp;oporti&nbsp;UART1_Init&nbsp;usetri&nbsp;70&nbsp;bytes
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">TXSTA1</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">RCSTA1</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">BRG16_BAUD1CON_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;high&nbsp;speed&nbsp;UART
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">SPBRGH1</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">SPBRG1</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">34</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;for&nbsp;16Mhz&nbsp;@115k2&nbsp;(0.79%&nbsp;error)
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">BRGH_TX1STA_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">SPEN_RC1STA_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">TXEN_TX1STA_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">CREN_RC1STA_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;povoleni&nbsp;Tx&nbsp;i&nbsp;Rx,&nbsp;zpnuti&nbsp;UART1
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">RC1IF_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">RC1IE_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">PEIE_GIEL_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;&nbsp;Init&nbsp;functions&nbsp;to&nbsp;run
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">MAX7219_CS</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">CJ125_CS</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;SPI&nbsp;devices&nbsp;DISABLED
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">MAX7219_Init</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">_MAX7219_SHOW_DIGITS_0_3</span><span class="cpp1-symbol">,</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">_MAX7219_INTENSITY_2</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">MAX7219_DisplayOnOff</span><span class="cpp1-symbol">(</span><span class="cpp1-number">0</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">CJ125_RST</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;1&nbsp;=&gt;&nbsp;CJ125&nbsp;ENABLED
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;CJ125_RST&nbsp;=&nbsp;1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;1&nbsp;=&gt;&nbsp;CJ125&nbsp;ENABLED&nbsp;//presunutu&nbsp;do&nbsp;TEST&nbsp;fce
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;SPI1_Init_Advanced(_SPI_MASTER_OSC_DIV16,&nbsp;_SPI_DATA_SAMPLE_END,&nbsp;_SPI_CLK_IDLE_LOW,&nbsp;_SPI_LOW_2_HIGH);&nbsp;&nbsp;&nbsp;//&nbsp;OK&nbsp;pro&nbsp;MAX7219&nbsp;&nbsp;-&nbsp;viz&nbsp;prislusne&nbsp;.C
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;SPI1_Init_Advanced(_SPI_MASTER_OSC_DIV64,&nbsp;_SPI_DATA_SAMPLE_END,&nbsp;_SPI_CLK_IDLE_LOW,&nbsp;_SPI_HIGH_2_LOW);&nbsp;&nbsp;//&nbsp;OK&nbsp;pro&nbsp;CJ125&nbsp;&nbsp;-&nbsp;viz&nbsp;prislusne&nbsp;.C
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">ADC_Init</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">LED_Welcome</span><span class="cpp1-symbol">();</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;sekvence&nbsp;LED1,2,3&nbsp;pri&nbsp;zapnuti
+
+</span><span class="cpp1-space">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">GIE_GIEH_bit</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">=</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-comment">//&nbsp;Global&nbsp;IRQ&nbsp;ENABLE
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-comment">//&nbsp;==========================================================================//
+//&nbsp;==========================================================================//
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LED_Welcome</span><span class="cpp1-symbol">()</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">{</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">LED1</span><span class="cpp1-symbol">=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Delay_ms</span><span class="cpp1-symbol">(</span><span class="cpp1-number">100</span><span class="cpp1-symbol">);</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LED1</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-comment">//&nbsp;Delay_ms(50);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">LED2</span><span class="cpp1-symbol">=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Delay_ms</span><span class="cpp1-symbol">(</span><span class="cpp1-number">100</span><span class="cpp1-symbol">);</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LED2</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-comment">//&nbsp;Delay_ms(50);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">LED3</span><span class="cpp1-symbol">=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">Delay_ms</span><span class="cpp1-symbol">(</span><span class="cpp1-number">100</span><span class="cpp1-symbol">);</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">LED3</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-comment">//&nbsp;Delay_ms(50);
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-comment">//&nbsp;==========================================================================//
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">UART1_Welcome</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;&nbsp;UART1_Write_Text(&quot;MEP&nbsp;Wideband&nbsp;Controller&nbsp;v1.0&quot;);&nbsp;CR_LF(1);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">PrintF1</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;MEP&nbsp;Wideband&nbsp;Controller&nbsp;v1.0&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">CR_LF</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-identifier">PrintF1</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;============================&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">CR_LF</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">);</span><span class="cpp1-identifier">CR_LF</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">);
+}
+</span><span class="cpp1-comment">//&nbsp;==========================================================================//
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">CR_LF</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">u8</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">)</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">==</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">{</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">UART1_Write</span><span class="cpp1-symbol">(</span><span class="cpp1-number">10</span><span class="cpp1-symbol">);</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-comment">/*&nbsp;UART1_Write(13);&nbsp;*/</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">&nbsp;&nbsp;</span><span class="cpp1-reservedword">else</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-symbol">{</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-identifier">UART2_Write</span><span class="cpp1-symbol">(</span><span class="cpp1-number">10</span><span class="cpp1-symbol">);</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-comment">/*&nbsp;UART2_Write(13);&nbsp;*/</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-symbol">}
+}
+</span><span class="cpp1-comment">//&nbsp;==========================================================================//
+</span></code></pre><!--EndFragment--></body>
+</html>

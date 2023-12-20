@@ -1,0 +1,52 @@
+MS3_MEP WBO Controller v1.5                                                     
+============================                                                    
+SN: 0x2941                                                                      
+HW_VER:   0                                                                     
+HW_NAME: , S                                                                    
+LSU TYPE: LSU 4.9                                                               
+                                                                                
+Bosch CJ125, chip version = 0x63(BB), Status code = 10339                       
+                                                                                
+Init Vbat = 10780 mV                                                            
+                                                                                
+                                                                                
+CJ125 amplification set to v = 8 (9.55 - 21.00 AFR)                             
+Ip ref. current set to 20uA                                                     
+UA ref[mV]= 1496, UR ref[mV]= 1017                                              
+                                                                                
+                                                                                                                                                               
+WBO LSU 4.9 Sensor status - Other failure 1- Status code = 11903                                                                                                
+WBO LSU 4.9 Sensor status - Not connected - Status code = 10367                                                                                                 
+WBO LSU 4.9 Sensor status - Not connected - Status code = 10367                                                                                                 
+WBO LSU 4.9 Sensor status - OK - Status code = 10495                            
+                                                                                
+                                                                            
+Vypis pri behu
+
+ AFR= 2100 Vbat= 13450 UA= 2730 UR= 1017 PWM=   99 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2730 UR= 1026 PWM=  131 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2730 UR= 1002 PWM=   34 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2727 UR= 1031 PWM=  156 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2732 UR= 1031 PWM=  156 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2728 UR= 1022 PWM=  119 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2731 UR= 1022 PWM=  119 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2730 UR= 1017 PWM=   94 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2732 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2729 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2731 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2729 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2728 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2731 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2729 UR= 1022 PWM=  117 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2733 UR= 1012 PWM=   76 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2730 UR= 1017 PWM=   99 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2728 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2731 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2730 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2730 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2729 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13450 UA= 2732 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2731 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2731 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+ AFR= 2100 Vbat= 13396 UA= 2731 UR= 1017 PWM=   96 DAC1= 5000 DAC2= 5000        
+LSU sensor disconnected/failure, waiting for reconnecting....     

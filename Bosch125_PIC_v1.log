@@ -1,0 +1,359 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F26K22 -RA -DL -O11111114 -fo16 -EH"C:\MCU\projects\CJ125_MS3_v1.0\EEPROM_CONSTS.ihex" -PRG1 -N"C:\MCU\projects\CJ125_MS3_v1.0\Bosch125_PIC_v1.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\MCU\projects\CJ125_MS3_v1.0\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "main.c" "hw_init.c" "variables.c" "support.c" "AD.c" "Bosch_CJ125.c" "_not_used.c" "Storage.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CType.mcl" "__Lib_CString.mcl" "__Lib_CStdlib.mcl" "__Lib_CMath.mcl" "__Lib_MemManager.mcl" "__Lib_Conversions.mcl" "__Lib_ADC_K22_B.mcl" "__Lib_EEPROM_1024.mcl" "__Lib_FLASH_w64_e64.mcl" "__Lib_PWM_b50a4.mcl" "__Lib_SPI_c345b123.mcl"	 
+hint: 0	1139	Available RAM: 3875 [bytes], Available ROM: 65536 [bytes]	 
+diagnostics: 0	122	Compilation Started	P18F26K22.c
+diagnostics: 2623	123	Compiled Successfully	P18F26K22.c
+diagnostics: 0	122	Compilation Started	__Lib_Delays.c
+diagnostics: 172	123	Compiled Successfully	__Lib_Delays.c
+diagnostics: 0	122	Compilation Started	__Lib_MemManager.c
+warning: 34	1508	Implicit conversion of int to ptr	__Lib_MemManager.c
+diagnostics: 231	123	Compiled Successfully	__Lib_MemManager.c
+diagnostics: 0	122	Compilation Started	typedefs.h
+warning: 7	1504	Initialization of extern object 'u8TMP'	variables.h
+warning: 8	1504	Initialization of extern object 'I16_tmp'	variables.h
+warning: 9	1504	Initialization of extern object 'U16_tmp'	variables.h
+warning: 10	1504	Initialization of extern object 'U32_tmp'	variables.h
+warning: 11	1504	Initialization of extern object 'tmpFloat'	variables.h
+warning: 12	1504	Initialization of extern object 'ConfigMode'	variables.h
+warning: 17	1504	Initialization of extern object 'LED1_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED2_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED3_Cnt'	variables.h
+warning: 18	1504	Initialization of extern object 'LED1_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED2_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED3_Tresh'	variables.h
+warning: 20	1504	Initialization of extern object 'AD_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'DAC_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'VBAT_KOEF'	variables.h
+warning: 21	1504	Initialization of extern object 'DAC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'ADC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'VBAT_COEF_OFS_EEPROM'	variables.h
+warning: 22	1504	Initialization of extern object 'DAC_OUT'	variables.h
+warning: 23	1504	Initialization of extern object 'DAC_ERR_CNT'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_PWM'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_Target_PWM'	variables.h
+warning: 25	1504	Initialization of extern object 'ADC_RAW'	variables.h
+warning: 25	1504	Initialization of extern object 'CJ125_Ans'	variables.h
+warning: 27	1504	Initialization of extern object 'MAP'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_init_mV'	variables.h
+warning: 29	1504	Initialization of extern object 'UA_avg'	variables.h
+warning: 29	1504	Initialization of extern object 'AFR_act'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasTime_Cnt'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasStart'	variables.h
+warning: 32	1504	Initialization of extern object 'DisplayRefreshCnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Status'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_BUF64_cnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Normal'	variables.h
+warning: 36	1504	Initialization of extern object 'RX_cnt'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC1_Out'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC2_Out'	variables.h
+hint: 143	1163	Variable 'pNum' has been declared, but not used	main.c
+warning: 339	1505	Suspicious pointer conversion	main.c
+warning: 342	1505	Suspicious pointer conversion	main.c
+warning: 343	1505	Suspicious pointer conversion	main.c
+diagnostics: 370	123	Compiled Successfully	main.c
+hint: 57	1164	Variable 'tmp' has been eliminated by optimizer	main.c
+hint: 57	1164	Variable 'i' has been eliminated by optimizer	main.c
+hint: 58	1164	Variable 'RX_cnt' has been eliminated by optimizer	main.c
+hint: 142	1164	Variable 'RXdata' has been eliminated by optimizer	main.c
+hint: 142	1164	Variable 'CJ125_Status' has been eliminated by optimizer	main.c
+hint: 143	1164	Variable 'ch' has been eliminated by optimizer	main.c
+hint: 144	1164	Variable 'test' has been eliminated by optimizer	main.c
+hint: 144	1164	Variable 'tmp16' has been eliminated by optimizer	main.c
+hint: 145	1164	Variable 'tmpi8' has been eliminated by optimizer	main.c
+hint: 336	1164	Variable 'x' has been eliminated by optimizer	main.c
+diagnostics: 0	122	Compilation Started	typedefs.h
+warning: 7	1504	Initialization of extern object 'u8TMP'	variables.h
+warning: 8	1504	Initialization of extern object 'I16_tmp'	variables.h
+warning: 9	1504	Initialization of extern object 'U16_tmp'	variables.h
+warning: 10	1504	Initialization of extern object 'U32_tmp'	variables.h
+warning: 11	1504	Initialization of extern object 'tmpFloat'	variables.h
+warning: 12	1504	Initialization of extern object 'ConfigMode'	variables.h
+warning: 17	1504	Initialization of extern object 'LED1_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED2_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED3_Cnt'	variables.h
+warning: 18	1504	Initialization of extern object 'LED1_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED2_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED3_Tresh'	variables.h
+warning: 20	1504	Initialization of extern object 'AD_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'DAC_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'VBAT_KOEF'	variables.h
+warning: 21	1504	Initialization of extern object 'DAC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'ADC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'VBAT_COEF_OFS_EEPROM'	variables.h
+warning: 22	1504	Initialization of extern object 'DAC_OUT'	variables.h
+warning: 23	1504	Initialization of extern object 'DAC_ERR_CNT'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_PWM'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_Target_PWM'	variables.h
+warning: 25	1504	Initialization of extern object 'ADC_RAW'	variables.h
+warning: 25	1504	Initialization of extern object 'CJ125_Ans'	variables.h
+warning: 27	1504	Initialization of extern object 'MAP'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_init_mV'	variables.h
+warning: 29	1504	Initialization of extern object 'UA_avg'	variables.h
+warning: 29	1504	Initialization of extern object 'AFR_act'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasTime_Cnt'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasStart'	variables.h
+warning: 32	1504	Initialization of extern object 'DisplayRefreshCnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Status'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_BUF64_cnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Normal'	variables.h
+warning: 36	1504	Initialization of extern object 'RX_cnt'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC1_Out'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC2_Out'	variables.h
+diagnostics: 196	123	Compiled Successfully	hw_init.c
+diagnostics: 0	122	Compilation Started	typedefs.h
+warning: 7	1504	Initialization of extern object 'u8TMP'	variables.h
+warning: 8	1504	Initialization of extern object 'I16_tmp'	variables.h
+warning: 9	1504	Initialization of extern object 'U16_tmp'	variables.h
+warning: 10	1504	Initialization of extern object 'U32_tmp'	variables.h
+warning: 11	1504	Initialization of extern object 'tmpFloat'	variables.h
+warning: 12	1504	Initialization of extern object 'ConfigMode'	variables.h
+warning: 17	1504	Initialization of extern object 'LED1_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED2_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED3_Cnt'	variables.h
+warning: 18	1504	Initialization of extern object 'LED1_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED2_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED3_Tresh'	variables.h
+warning: 20	1504	Initialization of extern object 'AD_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'DAC_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'VBAT_KOEF'	variables.h
+warning: 21	1504	Initialization of extern object 'DAC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'ADC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'VBAT_COEF_OFS_EEPROM'	variables.h
+warning: 22	1504	Initialization of extern object 'DAC_OUT'	variables.h
+warning: 23	1504	Initialization of extern object 'DAC_ERR_CNT'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_PWM'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_Target_PWM'	variables.h
+warning: 25	1504	Initialization of extern object 'ADC_RAW'	variables.h
+warning: 25	1504	Initialization of extern object 'CJ125_Ans'	variables.h
+warning: 27	1504	Initialization of extern object 'MAP'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_init_mV'	variables.h
+warning: 29	1504	Initialization of extern object 'UA_avg'	variables.h
+warning: 29	1504	Initialization of extern object 'AFR_act'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasTime_Cnt'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasStart'	variables.h
+warning: 32	1504	Initialization of extern object 'DisplayRefreshCnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Status'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_BUF64_cnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Normal'	variables.h
+warning: 36	1504	Initialization of extern object 'RX_cnt'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC1_Out'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC2_Out'	variables.h
+diagnostics: 89	123	Compiled Successfully	variables.c
+diagnostics: 0	122	Compilation Started	typedefs.h
+warning: 7	1504	Initialization of extern object 'u8TMP'	variables.h
+warning: 8	1504	Initialization of extern object 'I16_tmp'	variables.h
+warning: 9	1504	Initialization of extern object 'U16_tmp'	variables.h
+warning: 10	1504	Initialization of extern object 'U32_tmp'	variables.h
+warning: 11	1504	Initialization of extern object 'tmpFloat'	variables.h
+warning: 12	1504	Initialization of extern object 'ConfigMode'	variables.h
+warning: 17	1504	Initialization of extern object 'LED1_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED2_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED3_Cnt'	variables.h
+warning: 18	1504	Initialization of extern object 'LED1_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED2_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED3_Tresh'	variables.h
+warning: 20	1504	Initialization of extern object 'AD_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'DAC_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'VBAT_KOEF'	variables.h
+warning: 21	1504	Initialization of extern object 'DAC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'ADC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'VBAT_COEF_OFS_EEPROM'	variables.h
+warning: 22	1504	Initialization of extern object 'DAC_OUT'	variables.h
+warning: 23	1504	Initialization of extern object 'DAC_ERR_CNT'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_PWM'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_Target_PWM'	variables.h
+warning: 25	1504	Initialization of extern object 'ADC_RAW'	variables.h
+warning: 25	1504	Initialization of extern object 'CJ125_Ans'	variables.h
+warning: 27	1504	Initialization of extern object 'MAP'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_init_mV'	variables.h
+warning: 29	1504	Initialization of extern object 'UA_avg'	variables.h
+warning: 29	1504	Initialization of extern object 'AFR_act'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasTime_Cnt'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasStart'	variables.h
+warning: 32	1504	Initialization of extern object 'DisplayRefreshCnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Status'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_BUF64_cnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Normal'	variables.h
+warning: 36	1504	Initialization of extern object 'RX_cnt'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC1_Out'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC2_Out'	variables.h
+diagnostics: 169	123	Compiled Successfully	support.c
+hint: 97	1164	Variable 'Y' has been eliminated by optimizer	support.c
+hint: 128	1164	Variable 'tmp' has been eliminated by optimizer	support.c
+diagnostics: 0	122	Compilation Started	typedefs.h
+warning: 7	1504	Initialization of extern object 'u8TMP'	variables.h
+warning: 8	1504	Initialization of extern object 'I16_tmp'	variables.h
+warning: 9	1504	Initialization of extern object 'U16_tmp'	variables.h
+warning: 10	1504	Initialization of extern object 'U32_tmp'	variables.h
+warning: 11	1504	Initialization of extern object 'tmpFloat'	variables.h
+warning: 12	1504	Initialization of extern object 'ConfigMode'	variables.h
+warning: 17	1504	Initialization of extern object 'LED1_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED2_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED3_Cnt'	variables.h
+warning: 18	1504	Initialization of extern object 'LED1_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED2_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED3_Tresh'	variables.h
+warning: 20	1504	Initialization of extern object 'AD_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'DAC_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'VBAT_KOEF'	variables.h
+warning: 21	1504	Initialization of extern object 'DAC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'ADC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'VBAT_COEF_OFS_EEPROM'	variables.h
+warning: 22	1504	Initialization of extern object 'DAC_OUT'	variables.h
+warning: 23	1504	Initialization of extern object 'DAC_ERR_CNT'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_PWM'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_Target_PWM'	variables.h
+warning: 25	1504	Initialization of extern object 'ADC_RAW'	variables.h
+warning: 25	1504	Initialization of extern object 'CJ125_Ans'	variables.h
+warning: 27	1504	Initialization of extern object 'MAP'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_init_mV'	variables.h
+warning: 29	1504	Initialization of extern object 'UA_avg'	variables.h
+warning: 29	1504	Initialization of extern object 'AFR_act'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasTime_Cnt'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasStart'	variables.h
+warning: 32	1504	Initialization of extern object 'DisplayRefreshCnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Status'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_BUF64_cnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Normal'	variables.h
+warning: 36	1504	Initialization of extern object 'RX_cnt'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC1_Out'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC2_Out'	variables.h
+diagnostics: 23	123	Compiled Successfully	AD.c
+diagnostics: 0	122	Compilation Started	typedefs.h
+warning: 7	1504	Initialization of extern object 'u8TMP'	variables.h
+warning: 8	1504	Initialization of extern object 'I16_tmp'	variables.h
+warning: 9	1504	Initialization of extern object 'U16_tmp'	variables.h
+warning: 10	1504	Initialization of extern object 'U32_tmp'	variables.h
+warning: 11	1504	Initialization of extern object 'tmpFloat'	variables.h
+warning: 12	1504	Initialization of extern object 'ConfigMode'	variables.h
+warning: 17	1504	Initialization of extern object 'LED1_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED2_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED3_Cnt'	variables.h
+warning: 18	1504	Initialization of extern object 'LED1_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED2_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED3_Tresh'	variables.h
+warning: 20	1504	Initialization of extern object 'AD_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'DAC_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'VBAT_KOEF'	variables.h
+warning: 21	1504	Initialization of extern object 'DAC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'ADC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'VBAT_COEF_OFS_EEPROM'	variables.h
+warning: 22	1504	Initialization of extern object 'DAC_OUT'	variables.h
+warning: 23	1504	Initialization of extern object 'DAC_ERR_CNT'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_PWM'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_Target_PWM'	variables.h
+warning: 25	1504	Initialization of extern object 'ADC_RAW'	variables.h
+warning: 25	1504	Initialization of extern object 'CJ125_Ans'	variables.h
+warning: 27	1504	Initialization of extern object 'MAP'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_init_mV'	variables.h
+warning: 29	1504	Initialization of extern object 'UA_avg'	variables.h
+warning: 29	1504	Initialization of extern object 'AFR_act'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasTime_Cnt'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasStart'	variables.h
+warning: 32	1504	Initialization of extern object 'DisplayRefreshCnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Status'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_BUF64_cnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Normal'	variables.h
+warning: 36	1504	Initialization of extern object 'RX_cnt'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC1_Out'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC2_Out'	variables.h
+warning: 106	1503	Result is not defined in function: 'CJ125_Vbat_check'	Bosch_CJ125.c
+hint: 201	1171	Statement "CR_LF;" has no effect, missing "( )" to become function call	Bosch_CJ125.c
+diagnostics: 254	123	Compiled Successfully	Bosch_CJ125.c
+hint: 6	1164	Variable 'lodata' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 20	1164	Variable 'n' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 54	1164	Variable 'n' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 54	1164	Variable 'error' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 76	1164	Variable 'n' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 110	1164	Variable 'UR_def' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 158	1164	Variable 'PreHeat_Level' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 159	1164	Variable 'PID_PWM_0' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 159	1164	Variable 'sensor_present' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 248	1164	Variable 'Ip' has been eliminated by optimizer	Bosch_CJ125.c
+hint: 36	1354	 warning: "/*" within comment	C:\MCU\projects\CJ125_MS3_v1.0\_not_used.c
+diagnostics: 0	122	Compilation Started	_not_used.c
+diagnostics: 0	123	Compiled Successfully	_not_used.c
+diagnostics: 1	122	Compilation Started	_not_used.c
+warning: 7	1504	Initialization of extern object 'u8TMP'	variables.h
+warning: 8	1504	Initialization of extern object 'I16_tmp'	variables.h
+warning: 9	1504	Initialization of extern object 'U16_tmp'	variables.h
+warning: 10	1504	Initialization of extern object 'U32_tmp'	variables.h
+warning: 11	1504	Initialization of extern object 'tmpFloat'	variables.h
+warning: 12	1504	Initialization of extern object 'ConfigMode'	variables.h
+warning: 17	1504	Initialization of extern object 'LED1_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED2_Cnt'	variables.h
+warning: 17	1504	Initialization of extern object 'LED3_Cnt'	variables.h
+warning: 18	1504	Initialization of extern object 'LED1_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED2_Tresh'	variables.h
+warning: 18	1504	Initialization of extern object 'LED3_Tresh'	variables.h
+warning: 20	1504	Initialization of extern object 'AD_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'DAC_KOEF'	variables.h
+warning: 20	1504	Initialization of extern object 'VBAT_KOEF'	variables.h
+warning: 21	1504	Initialization of extern object 'DAC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'ADC_COEF_OFS_EEPROM'	variables.h
+warning: 21	1504	Initialization of extern object 'VBAT_COEF_OFS_EEPROM'	variables.h
+warning: 22	1504	Initialization of extern object 'DAC_OUT'	variables.h
+warning: 23	1504	Initialization of extern object 'DAC_ERR_CNT'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_PWM'	variables.h
+warning: 24	1504	Initialization of extern object 'Heat_Target_PWM'	variables.h
+warning: 25	1504	Initialization of extern object 'ADC_RAW'	variables.h
+warning: 25	1504	Initialization of extern object 'CJ125_Ans'	variables.h
+warning: 27	1504	Initialization of extern object 'MAP'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'UA_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'UR_mV_ref'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_mV'	variables.h
+warning: 28	1504	Initialization of extern object 'Vbat_init_mV'	variables.h
+warning: 29	1504	Initialization of extern object 'UA_avg'	variables.h
+warning: 29	1504	Initialization of extern object 'AFR_act'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasTime_Cnt'	variables.h
+warning: 31	1504	Initialization of extern object 'MeasStart'	variables.h
+warning: 32	1504	Initialization of extern object 'DisplayRefreshCnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Status'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_BUF64_cnt'	variables.h
+warning: 35	1504	Initialization of extern object 'RX_Normal'	variables.h
+warning: 36	1504	Initialization of extern object 'RX_cnt'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC1_Out'	variables.h
+warning: 76	1504	Initialization of extern object 'DAC2_Out'	variables.h
+warning: 8	1505	Suspicious pointer conversion	Storage.c
+warning: 9	1505	Suspicious pointer conversion	Storage.c
+diagnostics: 53	123	Compiled Successfully	Storage.c
+hint: 14	1164	Variable 'i' has been eliminated by optimizer	Storage.c
+hint: 37	1164	Variable 'i' has been eliminated by optimizer	Storage.c
+diagnostics: 0	127	All files Compiled in 406 ms	 
+hint: 0	1144	Used RAM (bytes): 1883 (49%)  Free RAM (bytes): 1992 (51%)	Used RAM (bytes): 1883 (49%)  Free RAM (bytes): 1992 (51%)
+hint: 0	1144	Used ROM (bytes): 20589 (31%)  Free ROM (bytes): 44947 (69%)	Used ROM (bytes): 20589 (31%)  Free ROM (bytes): 44947 (69%)
+diagnostics: 0	125	Project Linked Successfully	Bosch125_PIC_v1.mcppi
+diagnostics: 0	128	Linked in 63 ms	 
+diagnostics: 0	129	Project 'Bosch125_PIC_v1.mcppi' completed: 656 ms	 
+diagnostics: 0	103	Finished successfully: 20 pro 2023, 22:54:41	Bosch125_PIC_v1.mcppi
