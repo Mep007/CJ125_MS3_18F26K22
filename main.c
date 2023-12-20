@@ -7,9 +7,9 @@
   - Timer 2 - pro CCP4 - PWM pro heater  (od mikroC pouzivanim CCP knihovny)
   - Timer 4 - pro CCP3 a CCP5 - pro analog. DAC1 a DAC2
   - N.U. Timer 6 - 10ms timer pro tlacitko na RA2
-  
   - spotreba z 5V cca 50mA max pri behu
-  
+  -
+  - Po startu programu zmeri Ua a Ur - Ur musi byt mezich 900-1200mV (bezne 1040mV), Ua je 1500mV (vystup z CJ125) - kdyz se lehce lisi, dokalibrovat v CFG modu (Rx+Tx= ON pri startu)
   - http://www.devtechnics.com/winlog.htm - soft na logovani
 */
 #include "resource.h"
