@@ -109,7 +109,7 @@ u16 LinFit(i16 X,i16 pTab[], u8 Tab_size) {  // cca xxx us@16Mhz pomoci lin. apr
        Y_k1 = pTab[Tab_size+id];     // UART1_Write_Text(" X_k1 = "); IntToStr(X_k1,_txtU16);  UART1_Write_Text(_txtU16); UART1_Write_Text(" Y_k1 = "); IntToStr(Y_k1,_txtU16);  UART1_Write_Text(_txtU16);
        X_k  = pTab[id-1]; // Xk je pred Xk1 tzn. -1
        Y_k  = pTab[(id+Tab_size)-1]; //    //  UART1_Write_Text(" X_k = "); IntToStr(X_k,_txtU16);  UART1_Write_Text(_txtU16); UART1_Write_Text(" Y_k = "); IntToStr(Y_k,_txtU16);  UART1_Write_Text(_txtU16);
-       Y = (Y_k * (X - X_k1) - Y_k1 * (X - X_k)) / (X_k - X_k1) ;  // a zde spocitame aproximaci z dat z atbulky hledane Y
+       Y = (Y_k * (X - X_k1) - Y_k1 * (X - X_k)) / (X_k - X_k1);  // a zde spocitame aproximaci z dat z tabulky hledane Y
    // UART1_Write_Text(" Y = "); IntToStr(Y,_txtU16);  UART1_Write_Text(_txtU16); //       UART1_Write_Text(" Ip = "); IntToStr(X,_txtU16);  UART1_Write_Text(_txtU16);     UART1_Write_Text("  => AFR = "); WordToStr((u16)Y,_txtU16);  UART1_Write_Text(_txtU16);   // CR_LF(1);
        return (u16)Y; // vrcime spocitane Y a koncime
      }
