@@ -387,10 +387,10 @@ warning: 36	1504	Initialization of extern object 'RX_cnt'	variables.h
 warning: 76	1504	Initialization of extern object 'DAC1_Out'	variables.h
 warning: 76	1504	Initialization of extern object 'DAC2_Out'	variables.h
 diagnostics: 832	123	Compiled Successfully	SSD1306OLED.c
-diagnostics: 0	127	All files Compiled in 500 ms	 
-hint: 0	1144	Used RAM (bytes): 3004 (78%)  Free RAM (bytes): 871 (22%)	Used RAM (bytes): 3004 (78%)  Free RAM (bytes): 871 (22%)
-hint: 0	1144	Used ROM (bytes): 36624 (56%)  Free ROM (bytes): 28912 (44%)	Used ROM (bytes): 36624 (56%)  Free ROM (bytes): 28912 (44%)
+diagnostics: 0	127	All files Compiled in 484 ms	 
+hint: 0	1144	Used RAM (bytes): 3017 (78%)  Free RAM (bytes): 858 (22%)	Used RAM (bytes): 3017 (78%)  Free RAM (bytes): 858 (22%)
+hint: 0	1144	Used ROM (bytes): 36877 (56%)  Free ROM (bytes): 28659 (44%)	Used ROM (bytes): 36877 (56%)  Free ROM (bytes): 28659 (44%)
 diagnostics: 0	125	Project Linked Successfully	Bosch125_PIC_v1.mcppi
-diagnostics: 0	128	Linked in 78 ms	 
+diagnostics: 0	128	Linked in 94 ms	 
 diagnostics: 0	129	Project 'Bosch125_PIC_v1.mcppi' completed: 594 ms	 
-diagnostics: 0	103	Finished successfully: 29 pro 2023, 16:13:48	Bosch125_PIC_v1.mcppi
+diagnostics: 0	103	Finished successfully: 29 pro 2023, 16:25:37	Bosch125_PIC_v1.mcppi

@@ -371,8 +371,8 @@ void DACx_Service(u16 AFR_Val,u8 UseGauge) {   // cca 1.5ms@16Mhz
 void UART_Service() {
    UART_PrintTxt(1," AFR=");   UART_PrintU16(1,AFR_act);    //WordToStr(AFR_act,_txtU16);  UART_PrintTxt(1,_txtU16);
   //UART_PrintTxt(1," MAP =");   UART_PrintU16(1,MAP);       //WordToStr(MAP,_txtU16);      UART_PrintTxt(1,_txtU16);
-   //UART_PrintTxt(1," Vbat= "); UART_PrintU16(1,Vbat_mV );  //WordToStr(Vbat_mV,_txtU16);  UART_PrintTxt(1,_txtU16);
-   //UART_PrintTxt(1," UA="); UART_PrintU16(1,UA_avg);    //WordToStr(UA_avg,_txtU16);   UART_PrintTxt(1,_txtU16);
+   UART_PrintTxt(1," Vbat= "); UART_PrintU16(1,Vbat_mV );  //WordToStr(Vbat_mV,_txtU16);  UART_PrintTxt(1,_txtU16);
+   UART_PrintTxt(1," UA="); UART_PrintU16(1,UA_mV);    //WordToStr(UA_avg,_txtU16);   UART_PrintTxt(1,_txtU16);
    UART_PrintTxt(1," UR=");    UART_PrintU16(1,UR_mV);     //WordToStr(UR_mV,_txtU16);    UART_PrintTxt(1,_txtU16);
    //UART_PrintTxt(1," PWM=");   UART_PrintU16(1,Heat_PWM ); //WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16);
   // UART_PrintTxt(1," DAC1=");  UART_PrintU16(1,DAC1_Out); //WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16);

@@ -568,8 +568,8 @@ void DACx_Service( unsigned int  AFR_Val, unsigned short  UseGauge) {
 void UART_Service() {
  UART_PrintTxt(1," AFR=");  WordToStr(AFR_act,_txtU16); UART_PrintTxt(1,_txtU16); ;
 
-
-
+ UART_PrintTxt(1," Vbat= ");  WordToStr(Vbat_mV,_txtU16); UART_PrintTxt(1,_txtU16); ;
+ UART_PrintTxt(1," UA=");  WordToStr(UA_mV,_txtU16); UART_PrintTxt(1,_txtU16); ;
  UART_PrintTxt(1," UR=");  WordToStr(UR_mV,_txtU16); UART_PrintTxt(1,_txtU16); ;
 
 

@@ -2157,12 +2157,60 @@ _UART_Service:
 	MOVLW       hi_addr(__txtU16+0)
 	MOVWF       FARG_UART_PrintTxt_p_string+1 
 	CALL        _UART_PrintTxt+0, 0
-;main.c,376 :: 		UART_PrintTxt(1," UR=");    UART_PrintU16(1,UR_mV);     //WordToStr(UR_mV,_txtU16);    UART_PrintTxt(1,_txtU16);
+;main.c,374 :: 		UART_PrintTxt(1," Vbat= "); UART_PrintU16(1,Vbat_mV );  //WordToStr(Vbat_mV,_txtU16);  UART_PrintTxt(1,_txtU16);
 	MOVLW       1
 	MOVWF       FARG_UART_PrintTxt_UART_nr+0 
 	MOVLW       ?lstr33_main+0
 	MOVWF       FARG_UART_PrintTxt_p_string+0 
 	MOVLW       hi_addr(?lstr33_main+0)
+	MOVWF       FARG_UART_PrintTxt_p_string+1 
+	CALL        _UART_PrintTxt+0, 0
+	MOVF        _Vbat_mV+0, 0 
+	MOVWF       FARG_WordToStr_input+0 
+	MOVF        _Vbat_mV+1, 0 
+	MOVWF       FARG_WordToStr_input+1 
+	MOVLW       __txtU16+0
+	MOVWF       FARG_WordToStr_output+0 
+	MOVLW       hi_addr(__txtU16+0)
+	MOVWF       FARG_WordToStr_output+1 
+	CALL        _WordToStr+0, 0
+	MOVLW       1
+	MOVWF       FARG_UART_PrintTxt_UART_nr+0 
+	MOVLW       __txtU16+0
+	MOVWF       FARG_UART_PrintTxt_p_string+0 
+	MOVLW       hi_addr(__txtU16+0)
+	MOVWF       FARG_UART_PrintTxt_p_string+1 
+	CALL        _UART_PrintTxt+0, 0
+;main.c,375 :: 		UART_PrintTxt(1," UA="); UART_PrintU16(1,UA_mV);    //WordToStr(UA_avg,_txtU16);   UART_PrintTxt(1,_txtU16);
+	MOVLW       1
+	MOVWF       FARG_UART_PrintTxt_UART_nr+0 
+	MOVLW       ?lstr34_main+0
+	MOVWF       FARG_UART_PrintTxt_p_string+0 
+	MOVLW       hi_addr(?lstr34_main+0)
+	MOVWF       FARG_UART_PrintTxt_p_string+1 
+	CALL        _UART_PrintTxt+0, 0
+	MOVF        _UA_mV+0, 0 
+	MOVWF       FARG_WordToStr_input+0 
+	MOVF        _UA_mV+1, 0 
+	MOVWF       FARG_WordToStr_input+1 
+	MOVLW       __txtU16+0
+	MOVWF       FARG_WordToStr_output+0 
+	MOVLW       hi_addr(__txtU16+0)
+	MOVWF       FARG_WordToStr_output+1 
+	CALL        _WordToStr+0, 0
+	MOVLW       1
+	MOVWF       FARG_UART_PrintTxt_UART_nr+0 
+	MOVLW       __txtU16+0
+	MOVWF       FARG_UART_PrintTxt_p_string+0 
+	MOVLW       hi_addr(__txtU16+0)
+	MOVWF       FARG_UART_PrintTxt_p_string+1 
+	CALL        _UART_PrintTxt+0, 0
+;main.c,376 :: 		UART_PrintTxt(1," UR=");    UART_PrintU16(1,UR_mV);     //WordToStr(UR_mV,_txtU16);    UART_PrintTxt(1,_txtU16);
+	MOVLW       1
+	MOVWF       FARG_UART_PrintTxt_UART_nr+0 
+	MOVLW       ?lstr35_main+0
+	MOVWF       FARG_UART_PrintTxt_p_string+0 
+	MOVLW       hi_addr(?lstr35_main+0)
 	MOVWF       FARG_UART_PrintTxt_p_string+1 
 	CALL        _UART_PrintTxt+0, 0
 	MOVF        _UR_mV+0, 0 
@@ -2184,9 +2232,9 @@ _UART_Service:
 ;main.c,379 :: 		UART_PrintTxt(1," DAC2=");  UART_PrintU16(1,DAC2_Out); //WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16);
 	MOVLW       1
 	MOVWF       FARG_UART_PrintTxt_UART_nr+0 
-	MOVLW       ?lstr34_main+0
+	MOVLW       ?lstr36_main+0
 	MOVWF       FARG_UART_PrintTxt_p_string+0 
-	MOVLW       hi_addr(?lstr34_main+0)
+	MOVLW       hi_addr(?lstr36_main+0)
 	MOVWF       FARG_UART_PrintTxt_p_string+1 
 	CALL        _UART_PrintTxt+0, 0
 	MOVF        _DAC2_Out+0, 0 
@@ -2302,11 +2350,11 @@ _OLED_Show_AFR:
 	MOVWF       FARG_sprintf_wh+0 
 	MOVLW       hi_addr(_Tmp_buf+0)
 	MOVWF       FARG_sprintf_wh+1 
-	MOVLW       ?lstr_35_main+0
+	MOVLW       ?lstr_37_main+0
 	MOVWF       FARG_sprintf_f+0 
-	MOVLW       hi_addr(?lstr_35_main+0)
+	MOVLW       hi_addr(?lstr_37_main+0)
 	MOVWF       FARG_sprintf_f+1 
-	MOVLW       higher_addr(?lstr_35_main+0)
+	MOVLW       higher_addr(?lstr_37_main+0)
 	MOVWF       FARG_sprintf_f+2 
 	MOVLW       100
 	MOVWF       R4 
@@ -2337,11 +2385,11 @@ _OLED_Show_AFR:
 	MOVWF       FARG_sprintf_wh+0 
 	MOVLW       hi_addr(_Tmp_buf+0)
 	MOVWF       FARG_sprintf_wh+1 
-	MOVLW       ?lstr_36_main+0
+	MOVLW       ?lstr_38_main+0
 	MOVWF       FARG_sprintf_f+0 
-	MOVLW       hi_addr(?lstr_36_main+0)
+	MOVLW       hi_addr(?lstr_38_main+0)
 	MOVWF       FARG_sprintf_f+1 
-	MOVLW       higher_addr(?lstr_36_main+0)
+	MOVLW       higher_addr(?lstr_38_main+0)
 	MOVWF       FARG_sprintf_f+2 
 	MOVLW       100
 	MOVWF       R4 
