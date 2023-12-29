@@ -4,6 +4,8 @@
 #define u16                  unsigned int
 #define u32                  unsigned long
 #define i32                  long
+//#define uint8_t              unsigned short
+//#define int16_t              int
 //#define PID_DEBUG                            // na UART PID parametry
 // kalibracni konstanty pro AD - Aref = 5.0V (LM2940T - 5, +/- 2%)  - Vcc=4980mV = > 4980*100/1023 = 486.8 => AD_KOEF=487
 #define _AD_CONST            489      // def. AN0 :hodnota kalibrace jendotliveho AD kanalu (pro ziskani mV) => 1023*495 = 496155/100=4962mV   i pro generovani DAC/PWM (napr. 2800mV*100/490= 571 (raw)
@@ -125,4 +127,5 @@
 #include "AD.h"
 #include "Bosch_CJ125.h"
 #include "storage.h"
+#include "SSD1306OLED.h"
 //#include "OLED_SSD1306.h"

@@ -178,6 +178,91 @@ extern  int  Heater_PID_Control( unsigned short  LSU,  int  input, int  target);
 extern void FLASH_64Words( unsigned int  Flash_Adr,  unsigned int  pBuf[]);
 extern void EEPROM_Write_Constant( unsigned int  Adr,EEprom Cal_Data);
 extern EEprom EEPROM_Read_Constant( unsigned int  Adr);
+#line 1 "c:/mcu/projects/cj125_ms3_v1.0/ssd1306oled.h"
+#line 1 "c:/users/public/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+
+
+
+ typedef char _Bool;
+#line 1 "c:/users/public/documents/mikroelektronika/mikroc pro for pic/include/stdint.h"
+
+
+
+
+typedef signed char int8_t;
+typedef signed int int16_t;
+typedef signed long int int32_t;
+
+
+typedef unsigned char uint8_t;
+typedef unsigned int uint16_t;
+typedef unsigned long int uint32_t;
+
+
+typedef signed char int_least8_t;
+typedef signed int int_least16_t;
+typedef signed long int int_least32_t;
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned int uint_least16_t;
+typedef unsigned long int uint_least32_t;
+
+
+
+typedef signed char int_fast8_t;
+typedef signed int int_fast16_t;
+typedef signed long int int_fast32_t;
+
+
+typedef unsigned char uint_fast8_t;
+typedef unsigned int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+
+
+typedef signed int intptr_t;
+typedef unsigned int uintptr_t;
+
+
+typedef signed long int intmax_t;
+typedef unsigned long int uintmax_t;
+#line 95 "c:/mcu/projects/cj125_ms3_v1.0/ssd1306oled.h"
+extern  _Bool  wrap;
+extern  _Bool  SSD1306_Color;
+
+extern void ssd1306_command(uint8_t c);
+extern void SSD1306_Begin(uint8_t vccstate, uint8_t i2caddr);
+extern void SSD1306_TextSize(uint8_t t_size);
+extern void SSD1306_GotoXY(uint8_t x, uint8_t y);
+extern void SSD1306_DrawPixel(uint8_t x, uint8_t y);
+extern void SSD1306_StartScrollRight(uint8_t start, uint8_t stop);
+extern void SSD1306_StartScrollLeft(uint8_t start, uint8_t stop);
+extern void SSD1306_StartScrollDiagRight(uint8_t start, uint8_t stop);
+extern void SSD1306_StartScrollDiagLeft(uint8_t start, uint8_t stop);
+extern void SSD1306_StopScroll(void);
+extern void SSD1306_Dim( _Bool  dim);
+extern void SSD1306_Display(void);
+extern void SSD1306_ClearDisplay(void);
+extern void SSD1306_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1);
+extern void SSD1306_DrawFastHLine(uint8_t x, uint8_t y, uint8_t w);
+extern void SSD1306_DrawFastVLine(uint8_t x, uint8_t y, uint8_t h);
+extern void SSD1306_FillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h);
+extern void SSD1306_FillScreen();
+extern void SSD1306_DrawCircle(int16_t x0, int16_t y0, int16_t r);
+extern void SSD1306_DrawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername);
+extern void SSD1306_FillCircle(int16_t x0, int16_t y0, int16_t r);
+extern void SSD1306_FillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, int16_t delta);
+extern void SSD1306_DrawRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h);
+extern void SSD1306_DrawRoundRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r);
+extern void SSD1306_FillRoundRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r);
+extern void SSD1306_DrawTriangle(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
+extern void SSD1306_FillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2);
+extern void SSD1306_PutC(uint8_t c);
+extern void SSD1306_Print(char *s);
+extern void SSD1306_PutCustomC(const uint8_t *c);
+extern void SSD1306_DrawBMP(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w, uint8_t h);
+extern void SSD1306_SetTextWrap( _Bool  w);
+extern void SSD1306_InvertDisplay( _Bool  i);
 #line 6 "C:/MCU/projects/CJ125_MS3_v1.0/variables.c"
  unsigned short  _txtU8[4],_txtI8[5],_txtU16[6],_txtFLOAT[15],_txtI16[7], Tmp_buf[ 32 ];
  unsigned short  u8TMP=0;

@@ -1,4 +1,59 @@
 main
+	sprintf
+		_doprntf
+			isdigit
+			Mul_16X16_U
+			Compare_Double
+			Equals_Double
+			Div_16x16_S
+				Div_16x16_S_L
+			scale
+				Div_8X8_S
+				Mul_32x32_FP
+					RES032
+					SETFOV32
+					SETFUN32
+			Mul_32x32_FP
+				RES032
+				SETFOV32
+				SETFUN32
+			Div_32x32_FP
+				SETFDZ32
+				RES032
+				SETFOV32
+				SETFUN32
+			double2longword
+				SETIOV3224
+			longword2double
+				NRM4032
+					SETFUN32
+					FIXSIGN32
+					SETFOV32
+					RES032
+			Sub_32x32_FP
+				Add_32x32_FP
+					NRM4032
+						SETFUN32
+						FIXSIGN32
+						SETFOV32
+						RES032
+					SETFOV32
+			Add_32x32_FP
+				NRM4032
+					SETFUN32
+					FIXSIGN32
+					SETFOV32
+					RES032
+				SETFOV32
+			Div_32x32_U
+			fround
+				Div_8X8_U
+				Mul_32x32_FP
+					RES032
+					SETFOV32
+					SETFUN32
+			double2longint
+				SETIOV3224
 	__CC2DW
 	HW_Init
 		ADC_Init
@@ -28,8 +83,65 @@ main
 				Div_8X8_U
 		WordToStr
 			Div_16X16_U
+	I2C2_Init
 	UART_PrintTxt
 	CR_LF
+	SSD1306_Begin
+		ssd1306_command
+			I2C2_Start
+				I2C2_Is_Idle
+				____DoIFC
+			I2C2_Wr
+				____DoIFC
+			I2C2_Stop
+	SSD1306_ClearDisplay
+	SSD1306_Display
+		ssd1306_command
+			I2C2_Start
+				I2C2_Is_Idle
+				____DoIFC
+			I2C2_Wr
+				____DoIFC
+			I2C2_Stop
+		I2C2_Start
+			I2C2_Is_Idle
+			____DoIFC
+		I2C2_Wr
+			____DoIFC
+		I2C2_Stop
+	SSD1306_FillRect
+		SSD1306_DrawFastVLine
+			SSD1306_DrawLine
+				abs
+				SSD1306_DrawPixel
+	SSD1306_TextSize
+	SSD1306_GotoXY
+	SSD1306_Print
+		SSD1306_PutC
+			Mul_16X16_U
+			SSD1306_DrawPixel
+			SSD1306_FillRect
+				SSD1306_DrawFastVLine
+					SSD1306_DrawLine
+						abs
+						SSD1306_DrawPixel
+	Div_16X16_U
+	SSD1306_PutC
+		Mul_16X16_U
+		SSD1306_DrawPixel
+		SSD1306_FillRect
+			SSD1306_DrawFastVLine
+				SSD1306_DrawLine
+					abs
+					SSD1306_DrawPixel
+	SSD1306_InvertDisplay
+		ssd1306_command
+			I2C2_Start
+				I2C2_Is_Idle
+				____DoIFC
+			I2C2_Wr
+				____DoIFC
+			I2C2_Stop
 	DACx_mV_Out_10bit
 		Mul_32x32_U
 		Div_32x32_U
@@ -164,7 +276,6 @@ main
 				SETIOV3224
 		PWM4_Set_Duty
 			Mul_16X16_U
-	Div_16X16_U
 	word2double
 		NRM3232
 			RES032

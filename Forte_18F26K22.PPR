@@ -30,7 +30,7 @@ SkipBlankCheck=0
 SkipErase=0
 SkipEraseData=1
 SkipLastFFVerify=0
-AllowVppFirstWithExtVcc=0
+AllowVppFirstWithExtVcc=1
 SkipVerify=0
 DoubleVerify=0
 DoubleVerifyV1=20
@@ -132,6 +132,7 @@ ProgCalibInFuses=0
 PartInterface=-1
 SPI_Flash_Interface=0
 i2cPullUp=1
+CH32VFastMode=0
 [Pins]
 T_DuringProg=2
 T_AfterProg=2

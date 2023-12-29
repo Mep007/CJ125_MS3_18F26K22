@@ -18,8 +18,8 @@ _HW_Init:
 	MOVWF       PORTB+0 
 ;hw_init.c,27 :: 		ANSELB = 0;                // all digitals I/O     ; ;
 	CLRF        ANSELB+0 
-;hw_init.c,28 :: 		TRISB = 0b11000010;        // RB0- PWM CCP4 OUT spojen cinem s RB1(INPUT) - PIC_HEATER (pac RB1 nema CCPx unit)                        // RB5 - DAC2 Out
-	MOVLW       194
+;hw_init.c,28 :: 		TRISB = 0b11000000;        // RB0- PWM CCP4 OUT spojen cinem s RB1(INPUT) - PIC_HEATER (pac RB1 nema CCPx unit)                        // RB5 - DAC2 Out
+	MOVLW       192
 	MOVWF       TRISB+0 
 ;hw_init.c,30 :: 		PORTC = LATC = 0b00000011;   // MAX7219 nCS OFF :> RC0 = log1, Bosch CJ125 - RC1 = log1 (OFF), RC2 - Bosch CJ125 - RST (log1 = working)
 	MOVLW       3

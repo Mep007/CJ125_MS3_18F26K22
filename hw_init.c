@@ -25,7 +25,7 @@ void HW_Init() {
    // PORT B definition
   PORTB = LATB = 0;
   ANSELB = 0;                // all digitals I/O     ; ;
-  TRISB = 0b11000010;        // RB0- PWM CCP4 OUT spojen cinem s RB1(INPUT) - PIC_HEATER (pac RB1 nema CCPx unit)                        // RB5 - DAC2 Out
+  TRISB = 0b11000000;        // RB0- PWM CCP4 OUT spojen cinem s RB1(INPUT) - PIC_HEATER (pac RB1 nema CCPx unit)                        // RB5 - DAC2 Out
  // PORT C definition                                          RB6/7 - UART2 - both pins as INPUTS !! (see pdf page 260)
   PORTC = LATC = 0b00000011;   // MAX7219 nCS OFF :> RC0 = log1, Bosch CJ125 - RC1 = log1 (OFF), RC2 - Bosch CJ125 - RST (log1 = working)
   ANSELC = 0;                  // all digitals I/O

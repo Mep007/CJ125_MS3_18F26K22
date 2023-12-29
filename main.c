@@ -151,6 +151,39 @@ START:
     // ====== 1. vycteme EEPROM konstanty na UART, prip displej apod. ================================
   UART_Welcome(1,EE_Consts);
   USE_UART1 = _UART1_LISTING(EE_Consts.OPTION);
+
+  I2C2_Init(400000);
+  UART_PrintTxt(1,"OLED test"); CR_LF(1);
+
+  SSD1306_Begin(SSD1306_SWITCHCAPVCC, 0x78); // SSD1306_I2C_ADDRESS);
+  SSD1306_ClearDisplay();   // clear the buffer
+   SSD1306_Display();
+  SSD1306_Color = 1;
+
+  SSD1306_FillRect(60,33,5,5);
+  SSD1306_TextSize(5);
+  SSD1306_GotoXY(0, 2);
+     AFR_act = 1489;
+   sprintf(Tmp_buf,"%u",AFR_act/100); SSD1306_Print(Tmp_buf);
+   SSD1306_GotoXY(71, 2);
+   sprintf(Tmp_buf,"%u",AFR_act%100); SSD1306_Print(Tmp_buf);
+
+  SSD1306_TextSize(2);
+  SSD1306_GotoXY(10, 48);  SSD1306_PutC('1');  SSD1306_PutC('2'); SSD1306_PutC('3'); SSD1306_PutC('4');
+  SSD1306_GotoXY(80,48); // SSD1306_Print("1945");   //SSD1306_PutC('1');  SSD1306_PutC('9'); SSD1306_PutC('9'); SSD1306_PutC('4');
+
+
+  SSD1306_Display();
+
+   while(1)
+   {
+   SSD1306_InvertDisplay(1);
+   Delay_ms(1000);
+   SSD1306_InvertDisplay(0);
+       Delay_ms(1000);
+   }
+
+  
   if (USE_UART1) { UART_PrintTxt(1,"USE UART1 for listing"); CR_LF(1); }
   // vstup do RS232 debug modu
   do {

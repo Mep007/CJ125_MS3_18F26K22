@@ -178,6 +178,91 @@ extern  int  Heater_PID_Control( unsigned short  LSU,  int  input, int  target);
 extern void FLASH_64Words( unsigned int  Flash_Adr,  unsigned int  pBuf[]);
 extern void EEPROM_Write_Constant( unsigned int  Adr,EEprom Cal_Data);
 extern EEprom EEPROM_Read_Constant( unsigned int  Adr);
+#line 1 "c:/mcu/projects/cj125_ms3_v1.0/ssd1306oled.h"
+#line 1 "c:/users/public/documents/mikroelektronika/mikroc pro for pic/include/stdbool.h"
+
+
+
+ typedef char _Bool;
+#line 1 "c:/users/public/documents/mikroelektronika/mikroc pro for pic/include/stdint.h"
+
+
+
+
+typedef signed char int8_t;
+typedef signed int int16_t;
+typedef signed long int int32_t;
+
+
+typedef unsigned char uint8_t;
+typedef unsigned int uint16_t;
+typedef unsigned long int uint32_t;
+
+
+typedef signed char int_least8_t;
+typedef signed int int_least16_t;
+typedef signed long int int_least32_t;
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned int uint_least16_t;
+typedef unsigned long int uint_least32_t;
+
+
+
+typedef signed char int_fast8_t;
+typedef signed int int_fast16_t;
+typedef signed long int int_fast32_t;
+
+
+typedef unsigned char uint_fast8_t;
+typedef unsigned int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+
+
+typedef signed int intptr_t;
+typedef unsigned int uintptr_t;
+
+
+typedef signed long int intmax_t;
+typedef unsigned long int uintmax_t;
+#line 95 "c:/mcu/projects/cj125_ms3_v1.0/ssd1306oled.h"
+extern  _Bool  wrap;
+extern  _Bool  SSD1306_Color;
+
+extern void ssd1306_command(uint8_t c);
+extern void SSD1306_Begin(uint8_t vccstate, uint8_t i2caddr);
+extern void SSD1306_TextSize(uint8_t t_size);
+extern void SSD1306_GotoXY(uint8_t x, uint8_t y);
+extern void SSD1306_DrawPixel(uint8_t x, uint8_t y);
+extern void SSD1306_StartScrollRight(uint8_t start, uint8_t stop);
+extern void SSD1306_StartScrollLeft(uint8_t start, uint8_t stop);
+extern void SSD1306_StartScrollDiagRight(uint8_t start, uint8_t stop);
+extern void SSD1306_StartScrollDiagLeft(uint8_t start, uint8_t stop);
+extern void SSD1306_StopScroll(void);
+extern void SSD1306_Dim( _Bool  dim);
+extern void SSD1306_Display(void);
+extern void SSD1306_ClearDisplay(void);
+extern void SSD1306_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1);
+extern void SSD1306_DrawFastHLine(uint8_t x, uint8_t y, uint8_t w);
+extern void SSD1306_DrawFastVLine(uint8_t x, uint8_t y, uint8_t h);
+extern void SSD1306_FillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h);
+extern void SSD1306_FillScreen();
+extern void SSD1306_DrawCircle(int16_t x0, int16_t y0, int16_t r);
+extern void SSD1306_DrawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername);
+extern void SSD1306_FillCircle(int16_t x0, int16_t y0, int16_t r);
+extern void SSD1306_FillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, int16_t delta);
+extern void SSD1306_DrawRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h);
+extern void SSD1306_DrawRoundRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r);
+extern void SSD1306_FillRoundRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r);
+extern void SSD1306_DrawTriangle(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
+extern void SSD1306_FillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2);
+extern void SSD1306_PutC(uint8_t c);
+extern void SSD1306_Print(char *s);
+extern void SSD1306_PutCustomC(const uint8_t *c);
+extern void SSD1306_DrawBMP(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w, uint8_t h);
+extern void SSD1306_SetTextWrap( _Bool  w);
+extern void SSD1306_InvertDisplay( _Bool  i);
 #line 41 "C:/MCU/projects/CJ125_MS3_v1.0/main.c"
 void UART_Service();
 void DACx_Service( unsigned int  AFR_Val, unsigned short  UseGauge);
@@ -282,6 +367,39 @@ START:
 
  UART_Welcome(1,EE_Consts);
  USE_UART1 =  (EE_Consts.OPTION && 0b10000000) ;
+
+ I2C2_Init(400000);
+ UART_PrintTxt(1,"OLED test"); CR_LF(1);
+
+ SSD1306_Begin( 0x02 , 0x78);
+ SSD1306_ClearDisplay();
+ SSD1306_Display();
+ SSD1306_Color = 1;
+
+ SSD1306_FillRect(60,33,5,5);
+ SSD1306_TextSize(5);
+ SSD1306_GotoXY(0, 2);
+ AFR_act = 1489;
+ sprintf(Tmp_buf,"%u",AFR_act/100); SSD1306_Print(Tmp_buf);
+ SSD1306_GotoXY(71, 2);
+ sprintf(Tmp_buf,"%u",AFR_act%100); SSD1306_Print(Tmp_buf);
+
+ SSD1306_TextSize(2);
+ SSD1306_GotoXY(10, 48); SSD1306_PutC('1'); SSD1306_PutC('2'); SSD1306_PutC('3'); SSD1306_PutC('4');
+ SSD1306_GotoXY(80,48);
+
+
+ SSD1306_Display();
+
+ while(1)
+ {
+ SSD1306_InvertDisplay(1);
+ Delay_ms(1000);
+ SSD1306_InvertDisplay(0);
+ Delay_ms(1000);
+ }
+
+
  if (USE_UART1) { UART_PrintTxt(1,"USE UART1 for listing"); CR_LF(1); }
 
  do {
@@ -424,7 +542,7 @@ START:
  UA_avg = UA_avg / ( 5 +1);
  AFR_act = LinFit(CJ125_Calc_Ip(UA_avg,8), cj49Tab, 17 );
  Vbat_mV = Get_AD_mV( 4 ,VBAT_KOEF);
-#line 303 "C:/MCU/projects/CJ125_MS3_v1.0/main.c"
+#line 336 "C:/MCU/projects/CJ125_MS3_v1.0/main.c"
  DACx_Service(AFR_act,  0 );
  }
  else {

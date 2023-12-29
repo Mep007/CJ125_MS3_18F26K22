@@ -940,7 +940,7 @@ L__LinFit75:
 	MOVLW       255
 	MOVWF       LinFit_Y_k_L0+2 
 	MOVWF       LinFit_Y_k_L0+3 
-;support.c,112 :: 		Y = (Y_k * (X - X_k1) - Y_k1 * (X - X_k)) / (X_k - X_k1) ;  // a zde spocitame aproximaci z dat z atbulky hledane Y
+;support.c,112 :: 		Y = (Y_k * (X - X_k1) - Y_k1 * (X - X_k)) / (X_k - X_k1);  // a zde spocitame aproximaci z dat z tabulky hledane Y
 	MOVF        FARG_LinFit_X+0, 0 
 	MOVWF       R0 
 	MOVF        FARG_LinFit_X+1, 0 

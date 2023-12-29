@@ -24,24 +24,23 @@ File4=AD.c
 File5=Bosch_CJ125.c
 File6=_not_used.c
 File7=Storage.c
-Count=8
+File8=SSD1306OLED.c
+Count=9
 [BINARIES]
 Count=0
 [IMAGES]
 Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
-File0=main.c
-File1=Bosch_CJ125.c
-File2=variables.h
-File3=variables.c
-File4=resource.h
-File5=support.c
-File6=AD.c
-File7=AD.h
-File8=storage.h
-File9=Bosch_CJ125.h
-Count=10
+File0=resource.h
+File1=SSD1306OLED.c
+File2=SSD1306OLED.h
+File3=hw_init.c
+File4=Storage.h
+File5=variables.c
+File6=variables.h
+File7=main.c
+Count=8
 [EEPROM]
 File0=EEPROM_CONSTS.ihex
 Count=1
@@ -50,12 +49,9 @@ Count=0
 [OTHER_FILES]
 Count=0
 [SEARCH_PATH]
-Path0=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\
-Path1=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\
-Count=2
+Count=0
 [HEADER_PATH]
-Path0=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\
-Count=1
+Count=0
 [HEADERS]
 File0=resource.h
 File1=hw_init.h
@@ -65,7 +61,8 @@ File4=AD.h
 File5=Bosch_CJ125.h
 File6=Storage.h
 File7=typedefs.h
-Count=8
+File8=SSD1306OLED.h
+Count=9
 [PLDS]
 Count=0
 [Useses]
@@ -80,19 +77,21 @@ File7=FLASH
 File8=EEPROM
 File9=C_Stdlib
 File10=C_Math
-Count=11
+File11=I2C
+File12=Sprintf
+Count=13
 [INTERRUPT_DEFS]
 VECTOR_MODE=0
 IVT_BASE=00000008
 [EXPANDED_NODES]
 0=Bosch125_PIC_v1.mcppi
 1=Sources
-10=Header Files
-22=EEPROM Files
-Count=4
+11=Header Files
+Count=3
 [LIB_EXPANDED_NODES]
 0=mikroE Libraries
 1=System Libraries
+643=Sprintf
 Count=3
 [PROGRAMMER_TYPE]
 Value=CodeGrip for PIC
