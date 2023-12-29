@@ -268,7 +268,8 @@ void UART_Service();
 void DACx_Service( unsigned int  AFR_Val, unsigned short  UseGauge);
 void DACx_Err_Mode( unsigned int  start_DAC, unsigned int  max_DAC_add,  unsigned int  step);
  unsigned int  LSU_PID_Heater_Service( unsigned int  Ur_Act, unsigned int  Ur_Target);
-#line 56 "C:/MCU/projects/CJ125_MS3_v1.0/main.c"
+void OLED_Show_AFR( unsigned int  Afr,  unsigned int  Vbat);
+#line 57 "C:/MCU/projects/CJ125_MS3_v1.0/main.c"
 void interrupt() {
  char tmp=0,i=0;
   unsigned int  RX_cnt=0;
@@ -363,43 +364,18 @@ void main() {
   TMR6IE_bit = 1; 
 START:
  HW_Init();
+ I2C2_Init(400000);
+
   LED1_Tresh = 0;LED2_Tresh = 0;LED3_Tresh = 0; 
 
  UART_Welcome(1,EE_Consts);
  USE_UART1 =  (EE_Consts.OPTION && 0b10000000) ;
-
- I2C2_Init(400000);
  UART_PrintTxt(1,"OLED test"); CR_LF(1);
 
  SSD1306_Begin( 0x02 , 0x78);
  SSD1306_ClearDisplay();
  SSD1306_Display();
- SSD1306_Color = 1;
-
- SSD1306_FillRect(60,33,5,5);
- SSD1306_TextSize(5);
- SSD1306_GotoXY(0, 2);
- AFR_act = 1489;
- sprintf(Tmp_buf,"%u",AFR_act/100); SSD1306_Print(Tmp_buf);
- SSD1306_GotoXY(71, 2);
- sprintf(Tmp_buf,"%u",AFR_act%100); SSD1306_Print(Tmp_buf);
-
- SSD1306_TextSize(2);
- SSD1306_GotoXY(10, 48); SSD1306_PutC('1'); SSD1306_PutC('2'); SSD1306_PutC('3'); SSD1306_PutC('4');
- SSD1306_GotoXY(80,48);
-
-
- SSD1306_Display();
-
- while(1)
- {
- SSD1306_InvertDisplay(1);
- Delay_ms(1000);
- SSD1306_InvertDisplay(0);
- Delay_ms(1000);
- }
-
-
+#line 176 "C:/MCU/projects/CJ125_MS3_v1.0/main.c"
  if (USE_UART1) { UART_PrintTxt(1,"USE UART1 for listing"); CR_LF(1); }
 
  do {
@@ -529,32 +505,34 @@ START:
  }
 
 
- if (_PID_Calc >=  5 ) {
+ if (_PID_Calc >=  2 ) {
  _PID_Calc = 0;
  UR_mV = Get_AD_mV( 2 ,AD_KOEF);
  Heat_PWM = LSU_PID_Heater_Service(UR_mV,UR_mV_ref);
  }
 
 
- if (MeasTime_Cnt >=  5 ) {
+ if (MeasTime_Cnt >=  1 ) {
  MeasTime_Cnt = MeasStart=0;
- for (i=0; i <=  5 ; i++) UA_avg = UA_avg + UA_results[i];
- UA_avg = UA_avg / ( 5 +1);
- AFR_act = LinFit(CJ125_Calc_Ip(UA_avg,8), cj49Tab, 17 );
+
+
+
+ AFR_act = LinFit(CJ125_Calc_Ip(UA_mV,8), cj49Tab, 17 );
  Vbat_mV = Get_AD_mV( 4 ,VBAT_KOEF);
-#line 336 "C:/MCU/projects/CJ125_MS3_v1.0/main.c"
+#line 326 "C:/MCU/projects/CJ125_MS3_v1.0/main.c"
  DACx_Service(AFR_act,  0 );
  }
  else {
  UA_mV = Get_AD_mV( 1 ,AD_KOEF);
- UA_results[MeasTime_Cnt] = UA_mV;
+
  MeasStart=0;
  MeasTime_Cnt++;
  };
 
 
- if (DisplayRefreshCnt >=  5 ) {
+ if (DisplayRefreshCnt >=  1 ) {
  DisplayRefreshCnt = 0;
+ OLED_Show_AFR(AFR_act, AFR_act);
  if (USE_UART1) UART_Service();
  }
  }
@@ -574,7 +552,6 @@ START:
 }
 
 
-
 void DACx_Service( unsigned int  AFR_Val, unsigned short  UseGauge) {
   unsigned short  x=0;
 
@@ -591,11 +568,11 @@ void DACx_Service( unsigned int  AFR_Val, unsigned short  UseGauge) {
 void UART_Service() {
  UART_PrintTxt(1," AFR=");  WordToStr(AFR_act,_txtU16); UART_PrintTxt(1,_txtU16); ;
 
- UART_PrintTxt(1," Vbat= ");  WordToStr(Vbat_mV,_txtU16); UART_PrintTxt(1,_txtU16); ;
- UART_PrintTxt(1," UA=");  WordToStr(UA_avg,_txtU16); UART_PrintTxt(1,_txtU16); ;
+
+
  UART_PrintTxt(1," UR=");  WordToStr(UR_mV,_txtU16); UART_PrintTxt(1,_txtU16); ;
- UART_PrintTxt(1," PWM=");  WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16); ;
- UART_PrintTxt(1," DAC1=");  WordToStr(DAC1_Out,_txtU16); UART_PrintTxt(1,_txtU16); ;
+
+
  UART_PrintTxt(1," DAC2=");  WordToStr(DAC2_Out,_txtU16); UART_PrintTxt(1,_txtU16); ;
 
  CR_LF(1);
@@ -610,4 +587,20 @@ void DACx_Err_Mode( unsigned int  start_DAC, unsigned int  max_DAC_add,  unsigne
  DAC_out = start_DAC + DAC_ERR_CNT;
  DACx_mV_Out_10bit(1,DAC_out); DACx_mV_Out_10bit(2,DAC_out); CR_LF(1);
 
+}
+
+void OLED_Show_AFR( unsigned int  Afr,  unsigned int  Vbat)
+{
+ SSD1306_ClearDisplay();
+ SSD1306_FillRect(60,43,5,5);
+ SSD1306_TextSize(5);
+ SSD1306_GotoXY(0, 2); sprintf(Tmp_buf,"%u",Afr/100); SSD1306_Print(Tmp_buf);
+ SSD1306_GotoXY(71, 2); sprintf(Tmp_buf,"%u",Afr%100); SSD1306_Print(Tmp_buf);
+
+
+
+
+
+ SSD1306_FillRect(60,43,5,5);
+ SSD1306_Display();
 }

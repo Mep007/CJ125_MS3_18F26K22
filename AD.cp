@@ -268,14 +268,14 @@ extern void SSD1306_InvertDisplay( _Bool  i);
   unsigned int  Loop_nr;
 
  U32_tmp = 0;
- Loop_nr =  64 ;
+ Loop_nr =  8 ;
  do {
 
  U32_tmp = U32_tmp + ( unsigned long )ADC_Get_Sample(ch);
  Loop_nr--;
  } while (Loop_nr > 0);
 
- U32_tmp = ( unsigned long )U32_tmp >>  6 ;
+ U32_tmp = ( unsigned long )U32_tmp >>  3 ;
  ADC_RAW = ( unsigned int )U32_tmp;
  U32_tmp = U32_tmp * ( unsigned long )adc_koef;
  U32_tmp = ( unsigned long )U32_tmp / 100;

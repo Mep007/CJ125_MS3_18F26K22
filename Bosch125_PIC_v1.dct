@@ -1311,6 +1311,7 @@ oerr1
 oerr1_bit
 oerr2
 oerr2_bit
+oled_show_afr
 option
 osccon
 osccon2

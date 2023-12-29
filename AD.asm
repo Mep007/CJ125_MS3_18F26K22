@@ -8,7 +8,7 @@ _Get_AD_mV:
 	CLRF        _U32_tmp+2 
 	CLRF        _U32_tmp+3 
 ;AD.c,11 :: 		Loop_nr = AD_AVG_COUNT;  /// pocet cyklu pro ziskani AVG
-	MOVLW       64
+	MOVLW       8
 	MOVWF       Get_AD_mV_Loop_nr_L0+0 
 	MOVLW       0
 	MOVWF       Get_AD_mV_Loop_nr_L0+1 
@@ -47,7 +47,7 @@ L__Get_AD_mV4:
 	BTFSS       STATUS+0, 0 
 	GOTO        L_Get_AD_mV0
 ;AD.c,18 :: 		U32_tmp = (u32)U32_tmp >> AD_AVG_COUNT_FAST;  // avg
-	MOVLW       6
+	MOVLW       3
 	MOVWF       R0 
 	MOVF        _U32_tmp+0, 0 
 	MOVWF       R4 

@@ -23,10 +23,10 @@
 //===================================================================================
 //===================================================================================
 
-     #define PID_REFRESH      5      // perioda x * 50ms => 2 * 50 = 100ms
-     #define MEAS_REFRESH     5      // - perioda mereni vsech AD a generovani DAC -(max 10) perioda x * 50ms => 2 * 50 = 100ms
+     #define PID_REFRESH      2      // perioda x * 50ms => 2 * 50 = 100ms
+     #define MEAS_REFRESH     1      // - perioda mereni vsech AD a generovani DAC -(max 10) perioda x * 50ms => 2 * 50 = 100ms
      #define LED_REFRESH      4      // perioda x * 50ms => 4x50 = 200ms = > 5Hz refresh rate for 7seg LCD
-     #define DISP_REFRESH     5      // 4x50 = 200ms => 5Hz refresh pro LCD7 seg a UART vypis
+     #define DISP_REFRESH     1      // 4x50 = 200ms => 5Hz refresh pro LCD7 seg a UART vypis
      #define BUT_TIME_TRESH   5      // perioda timeru pro obsluhu tlacitka po 10ms (5x10=50ms)
 //#endif
 #ifdef DEBUG
@@ -42,6 +42,7 @@ void UART_Service();
 void DACx_Service(u16 AFR_Val,u8 UseGauge);
 void DACx_Err_Mode(u16 start_DAC,u16 max_DAC_add, u16 step);
 u16 LSU_PID_Heater_Service(u16 Ur_Act,u16 Ur_Target);
+void OLED_Show_AFR(u16 Afr, u16 Vbat);
 //void void Button_Service(u8 MaxPress);
 // Main.c Variables
 
@@ -147,43 +148,31 @@ void main() {
   START_TMR6      // dtto pro Timer 6 (IRQ po 10ms)
 START:
   HW_Init();      // all include UART's....
+  I2C2_Init(400000);
+
   ALL_LEDs_OFF
     // ====== 1. vycteme EEPROM konstanty na UART, prip displej apod. ================================
   UART_Welcome(1,EE_Consts);
   USE_UART1 = _UART1_LISTING(EE_Consts.OPTION);
-
-  I2C2_Init(400000);
   UART_PrintTxt(1,"OLED test"); CR_LF(1);
 
   SSD1306_Begin(SSD1306_SWITCHCAPVCC, 0x78); // SSD1306_I2C_ADDRESS);
   SSD1306_ClearDisplay();   // clear the buffer
-   SSD1306_Display();
-  SSD1306_Color = 1;
-
-  SSD1306_FillRect(60,33,5,5);
-  SSD1306_TextSize(5);
-  SSD1306_GotoXY(0, 2);
-     AFR_act = 1489;
-   sprintf(Tmp_buf,"%u",AFR_act/100); SSD1306_Print(Tmp_buf);
-   SSD1306_GotoXY(71, 2);
-   sprintf(Tmp_buf,"%u",AFR_act%100); SSD1306_Print(Tmp_buf);
-
-  SSD1306_TextSize(2);
-  SSD1306_GotoXY(10, 48);  SSD1306_PutC('1');  SSD1306_PutC('2'); SSD1306_PutC('3'); SSD1306_PutC('4');
-  SSD1306_GotoXY(80,48); // SSD1306_Print("1945");   //SSD1306_PutC('1');  SSD1306_PutC('9'); SSD1306_PutC('9'); SSD1306_PutC('4');
-
-
   SSD1306_Display();
-
+/*
+     AFR_act = 1000;
    while(1)
    {
-   SSD1306_InvertDisplay(1);
-   Delay_ms(1000);
-   SSD1306_InvertDisplay(0);
-       Delay_ms(1000);
+     OLED_Show_AFR(AFR_act, AFR_act);
+  // SSD1306_InvertDisplay(1);
+  //   Delay_ms(1000);
+  // SSD1306_InvertDisplay(0);
+   Delay_ms(50);
+   AFR_act++;
+   if (AFR_act > 1999) AFR_act=1000;
    }
+  */
 
-  
   if (USE_UART1) { UART_PrintTxt(1,"USE UART1 for listing"); CR_LF(1); }
   // vstup do RS232 debug modu
   do {
@@ -322,9 +311,10 @@ START:
   // 2.1 Vypocty AFR, mereni vsech analogu (krom UR), DAC generovani
     if (MeasTime_Cnt >= MEAS_REFRESH) {          // cela fce cca 48ms s AD 256x vzroky, 30ms se 128x vzorky AD !!!
       MeasTime_Cnt = MeasStart=0;              // povoli az dalsi IRQ
-      for (i=0; i <= MEAS_REFRESH; i++) UA_avg = UA_avg + UA_results[i];  // prumer zmerenych AFR z pole + i z toho predesleho AVG
-      UA_avg =  UA_avg / (MEAS_REFRESH+1); // +1 protoze do prumeru bereme i predchozi hodnotu UA_avg
-      AFR_act = LinFit(CJ125_Calc_Ip(UA_avg,8), cj49Tab,CJ49_TAB_SIZE);   // cca 1.3-1.5ms (Ip pocitano s floaty)
+
+     // for (i=0; i <= MEAS_REFRESH; i++) UA_avg = UA_avg + UA_results[i];  // prumer zmerenych AFR z pole + i z toho predesleho AVG
+     // UA_avg =  UA_avg / (MEAS_REFRESH+1); // +1 protoze do prumeru bereme i predchozi hodnotu UA_avg
+      AFR_act = LinFit(CJ125_Calc_Ip(UA_mV,8), cj49Tab,CJ49_TAB_SIZE);   // cca 1.3-1.5ms (Ip pocitano s floaty)
       Vbat_mV = Get_AD_mV(Vbat_AD_ch,VBAT_KOEF);   // merime vbat
      /* if ((Vbat_mV < VBAT_LOW) || (Vbat_mV > VBAT_MAX)) {  //test zda Vbat behem mereni nespadnul mimo meze
         Heat_PWM = 0;
@@ -337,7 +327,7 @@ START:
     } // if (MeasTime_Cnt...
     else {  // 2.0 tady nabirame vzorky do pole UA_results[] pro prumerovani Ua v if 2.1
       UA_mV = Get_AD_mV(UA_AD_ch,AD_KOEF);   // merime UA napeti z CJ125 ~ "lambda"
-      UA_results[MeasTime_Cnt] = UA_mV;      // ukladame data do pole UA (max 10)
+     // UA_results[MeasTime_Cnt] = UA_mV;      // ukladame data do pole UA (max 10)
       MeasStart=0;  // povoli az dalsi IRQ
       MeasTime_Cnt++;
     }; // else  (MeasTime...
@@ -345,6 +335,7 @@ START:
     // 3. Displej - refresh AFR na displeji a poslani dat na UARTy
     if (DisplayRefreshCnt >= DISP_REFRESH) { // cas na refresh AFR displeje   2 => 200ms => 5Hz
       DisplayRefreshCnt = 0;
+      OLED_Show_AFR(AFR_act, AFR_act);
       if (USE_UART1) UART_Service();        // UART - posilani dat -  techto 6x vypisu na UART trva 10ms (115k2)
     } // if DisplayRefresh....
   } // while 1     ===================================================
@@ -363,7 +354,6 @@ u16 LSU_PID_Heater_Service(u16 Ur_Act,u16 Ur_Target) {
   return PWM_Out;
 }
 
-
 // ===========================================================================
 void DACx_Service(u16 AFR_Val,u8 UseGauge) {   // cca 1.5ms@16Mhz
    u8 x=0;
@@ -381,11 +371,11 @@ void DACx_Service(u16 AFR_Val,u8 UseGauge) {   // cca 1.5ms@16Mhz
 void UART_Service() {
    UART_PrintTxt(1," AFR=");   UART_PrintU16(1,AFR_act);    //WordToStr(AFR_act,_txtU16);  UART_PrintTxt(1,_txtU16);
   //UART_PrintTxt(1," MAP =");   UART_PrintU16(1,MAP);       //WordToStr(MAP,_txtU16);      UART_PrintTxt(1,_txtU16);
-   UART_PrintTxt(1," Vbat= "); UART_PrintU16(1,Vbat_mV );  //WordToStr(Vbat_mV,_txtU16);  UART_PrintTxt(1,_txtU16);
-   UART_PrintTxt(1," UA="); UART_PrintU16(1,UA_avg);    //WordToStr(UA_avg,_txtU16);   UART_PrintTxt(1,_txtU16);
+   //UART_PrintTxt(1," Vbat= "); UART_PrintU16(1,Vbat_mV );  //WordToStr(Vbat_mV,_txtU16);  UART_PrintTxt(1,_txtU16);
+   //UART_PrintTxt(1," UA="); UART_PrintU16(1,UA_avg);    //WordToStr(UA_avg,_txtU16);   UART_PrintTxt(1,_txtU16);
    UART_PrintTxt(1," UR=");    UART_PrintU16(1,UR_mV);     //WordToStr(UR_mV,_txtU16);    UART_PrintTxt(1,_txtU16);
-   UART_PrintTxt(1," PWM=");   UART_PrintU16(1,Heat_PWM ); //WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16);
-   UART_PrintTxt(1," DAC1=");  UART_PrintU16(1,DAC1_Out); //WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16);
+   //UART_PrintTxt(1," PWM=");   UART_PrintU16(1,Heat_PWM ); //WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16);
+  // UART_PrintTxt(1," DAC1=");  UART_PrintU16(1,DAC1_Out); //WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16);
    UART_PrintTxt(1," DAC2=");  UART_PrintU16(1,DAC2_Out); //WordToStr(Heat_PWM,_txtU16); UART_PrintTxt(1,_txtU16);
    //           UART1_Write_Text(" IP = ");  CJ125_Calc_IP(UA_avg,8);  // vypocet IP je ok
     CR_LF(1);
@@ -400,6 +390,22 @@ void DACx_Err_Mode(u16 start_DAC,u16 max_DAC_add, u16 step) {  // plynule zvetsu
   DAC_out = start_DAC + DAC_ERR_CNT;
   DACx_mV_Out_10bit(1,DAC_out); DACx_mV_Out_10bit(2,DAC_out); CR_LF(1);
   //UART_PrintU16(1,DAC_out); CR_LF(1);
+}
+
+void OLED_Show_AFR(u16 Afr, u16 Vbat)  // zobrazi na pozici  [0,2] 14 pak [71,2] tecku aka 5x5 ctverecek a na [71,2] za destin. carkou  napr 1489 => 14.89
+{  // pouziva globalni tmp txt buf
+  SSD1306_ClearDisplay();
+  SSD1306_FillRect(60,43,5,5);  // desetinna tecka
+  SSD1306_TextSize(5);  // velky font
+  SSD1306_GotoXY(0, 2);  sprintf(Tmp_buf,"%u",Afr/100); SSD1306_Print(Tmp_buf);  // 1489=> 14
+  SSD1306_GotoXY(71, 2); sprintf(Tmp_buf,"%u",Afr%100); SSD1306_Print(Tmp_buf);  // 1489=> 89
+
+ // SSD1306_TextSize(2);
+ // SSD1306_GotoXY(2, 48); sprintf(Tmp_buf,"%u",Vbat/100); SSD1306_Print(Tmp_buf);
+ // SSD1306_GotoXY(30, 48); sprintf(Tmp_buf,"%u",Vbat%100); SSD1306_Print(Tmp_buf);
+//  SSD1306_GotoXY(80,48); // SSD1306_Print("1945");   //SSD1306_PutC('1');  SSD1306_PutC('9'); SSD1306_PutC('9'); SSD1306_PutC('4');
+  SSD1306_FillRect(60,43,5,5);  // desetinna tecka
+  SSD1306_Display();
 }
 // ===========================================================================
 /*
